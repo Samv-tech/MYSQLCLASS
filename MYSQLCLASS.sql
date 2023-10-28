@@ -87,5 +87,55 @@ select * from student_biodata;
 
 alter table payment add column amount_paid decimal(50);
 
-update amount_paid,
-where payment_id=001 as 30000;
+
+
+-- inserting more data into the student biodata table
+
+INSERT INTO `tutoria_school`.`student_biodata` (`student_id`, `fullname`, `gender`, `address`) 
+VALUES (4, 'Ismail Ajayi', 'Male', '936 Kiehn Route, West Ned, Tennessee'),
+		(5, 'Jeromy Mayert', 'Male', '4059 Carling Avenue, Ottawa, Ontario'),
+        (6, 'Assisat Osuala', 'Female', '60 Caradon Hill, Ugglebarnby, England'),
+        (7, 'Lizzy Ajewole', 'Female', '289 Mohr Heights, Aprilville, Oklahoma');
+INSERT INTO `tutoria_school`.`student_biodata` (`student_id`, `fullname`, `gender`, `address`) 
+VALUES (8, 'Zachariah Schulist', 'Male', '15 Sellamuttu Avenue 03, Colombo, Colombo'),
+		(9, 'Antonio Sandoval', 'Male', 'Avenida Mireia, 5, 8º 2º, Los Verdugo de San Pedro, Cuenca'),
+        (10, 'Enzo Massart', 'Female', 'Boulevard Ceulemans 832, Hannut, Mortsel');
+        
+-- inserting more data into the parent biodata table
+
+INSERT INTO `tutoria_school`.`parent_biodata` (parent_id, fullname, student_id, review) 
+VALUES (3, 'Mr Ajayi', 4, 'best school ever'),
+		(4, 'Mrs Mayert', 5, 'i dont like the school'),
+        (5, 'Mr Osuala', 6, 'poor management'),
+        (6, 'Mr Ajewole', 7, 'good student warefare'),
+        (7, 'Mr Zachariah', 8, 'i love my student teacher he is very good at his job'),
+		(8, 'Mrs Antonio', 9, 'what a good school that concern and check up on their student'),
+        (9, 'Mr Massart', 10, 'poor communication'),
+        (10, 'Mrs isaa', 3, 'poor communication');
+        
+        
+
+INSERT INTO `tutoria_school`.`payment` (payment_id, student_id, status, payment_method, amount_paid) 
+VALUES (5, 8, 1, 'transfer', 45000),
+        (6, 7, 1, 'transfer', 65000),
+        (7, 5, 1, 'transfer', 60000),
+        (8, 9, 1, 'transfer', 35000),
+        (9, 6, 1, 'transfer', 40000),
+        (10, 10, 1, 'transfer', 53000);
+        
+INSERT INTO `tutoria_school`.`payment` (payment_id, student_id, status, payment_method, amount_paid) 
+VALUES (4, 4, 1, 'check', 45000);
+
+
+-- CREATING TABKE FOR LECTURER BIODATA
+
+CREATE TABLE LECTURER (
+lecturer_id int,
+fullname varchar(50) not null,
+gender varchar(50),
+phoneno nvarchar(20),
+address longtext,
+subject_id int,
+PRIMARY KEY(lecturer_id),
+FOREIGN KEY (subject_id) references subject (subject_id)
+);
