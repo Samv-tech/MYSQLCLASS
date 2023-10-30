@@ -7,7 +7,8 @@ datas were fill inside the tables usint the insert command.
 
 inserting more data into the already created tables and creating lecturers table in other to link them with the subjects
 
-
+creating the lecturer table also adding the lecturer id column to the subject table
+inserting data into the created tables.
 
 
 
