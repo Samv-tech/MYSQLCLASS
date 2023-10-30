@@ -129,13 +129,48 @@ VALUES (4, 4, 1, 'check', 45000);
 
 -- CREATING TABKE FOR LECTURER BIODATA
 
+DROP TABLE LECTURER;
+
 CREATE TABLE LECTURER (
 lecturer_id int,
 fullname varchar(50) not null,
 gender varchar(50),
 phoneno nvarchar(20),
 address longtext,
-subject_id int,
-PRIMARY KEY(lecturer_id),
-FOREIGN KEY (subject_id) references subject (subject_id)
+PRIMARY KEY(lecturer_id)
 );
+
+
+-- INSERTING DATA INTO THE SUBJECT TABLE
+
+INSERT INTO SUBJECT (subject_id, subjectname, subject_code, lecturer_ID)
+values (1, 'tailoring', 'tai101', 02),
+		(2, 'catering', 'cat101', 01),
+        (3, 'hairdressing', 'had101', 03),
+        (4, 'shoemaking', 'shm101', 05),
+        (5, 'desktoppublishing', 'com101', 04);
+        
+        
+-- modifying the student biodata by adding the course doing
+alter table student_biodata add column subject_id int;
+
+
+-- updating data into the newly created column
+
+UPDATE `tutoria_school`.`student_biodata` SET `subject_id` = '3' WHERE (`student_id` = '2');
+UPDATE `tutoria_school`.`student_biodata` SET `subject_id` = '3' WHERE (`student_id` = '4');
+UPDATE `tutoria_school`.`student_biodata` SET `subject_id` = '4' WHERE (`student_id` = '5');
+UPDATE `tutoria_school`.`student_biodata` SET `subject_id` = '5' WHERE (`student_id` = '3');
+UPDATE `tutoria_school`.`student_biodata` SET `subject_id` = '1' WHERE (`student_id` = '6');
+UPDATE `tutoria_school`.`student_biodata` SET `subject_id` = '2' WHERE (`student_id` = '7');
+UPDATE `tutoria_school`.`student_biodata` SET `subject_id` = '4' WHERE (`student_id` = '8');
+UPDATE `tutoria_school`.`student_biodata` SET `subject_id` = '5' WHERE (`student_id` = '9');
+UPDATE `tutoria_school`.`student_biodata` SET `subject_id` = '5' WHERE (`student_id` = '10');
+
+-- adding data into the lecturer table
+insert into LECTURER (lecturer_id, fullname, gender,  phoneno, address)
+values (1, 'Adebayo Abeshin', 'Male', 234826524654, '24, isale eko lagos'),
+		(2, 'Ado chiamaka', 'Female', 234747654654, '23, lekki lagos'),
+        (3, 'olanipekun josheph', 'Male', 234826524654, '24, victoria island lagos'),
+        (4, 'Chibuzo Chiamaka', 'female', 234826524654, '24, banana island lagos'),
+        (5, 'Adio Abedanjo', 'Male', 234826524654, '2, ikorodu road lagos');
